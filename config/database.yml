@@ -7,8 +7,8 @@ default: &default
 
 development:
   <<: *default
-  database: tcr_dev
-  username: tcr_dev
+  database: tcr
+  username: tcr
 
 test:
   <<: *default
