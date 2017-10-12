@@ -29,7 +29,7 @@ group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a pry console
   gem 'rspec-rails', '~> 3.6'
   gem 'coveralls'
-  gem 'rubocop', '~> 0.49.1', require: false # avoid code churn due to rubocop changes
+  gem 'rubocop', '~> 0.50.0', require: false # avoid code churn due to rubocop changes
   gem 'rubocop-rspec'
 end
 
