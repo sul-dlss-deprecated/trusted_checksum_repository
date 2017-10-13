@@ -7,3 +7,11 @@
 # README
 
 Trusted Checksum Repository is a Rails API for independently storing preservation object checksums.
+
+## Developer Setup
+
+Run the `db_setup.sql` script to add the required users and databases:
+
+```
+psql -f db/scripts/db_setup.sql postgres
+```
