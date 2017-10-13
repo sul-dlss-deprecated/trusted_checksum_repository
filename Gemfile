@@ -15,6 +15,7 @@ gem 'pg'
 gem 'jbuilder', '~> 2.5'
 
 # useful for debugging, even in prod
+# Call 'binding.pry' anywhere in the code to stop execution and get a pry console
 gem 'pry-byebug' # Adds step-by-step debugging and stack navigation capabilities to pry using byebug
 gem 'pry-rails'  # use pry as the rails console shell instead of IRB
 
@@ -22,14 +23,12 @@ gem 'pry-rails'  # use pry as the rails console shell instead of IRB
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri]
-  # Call 'binding.pry' anywhere in the code to stop execution and get a pry console
   gem 'rspec-rails', '~> 3.6'
   gem 'coveralls'
-  gem 'rubocop', '~> 0.49.1', require: false # avoid code churn due to rubocop changes
+  gem 'rubocop', '~> 0.50.0', require: false # avoid code churn due to rubocop changes
   gem 'rubocop-rspec'
 end
 
