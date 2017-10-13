@@ -1,4 +1,87 @@
 inherit_from: .rubocop_todo.yml
 
+# Turn on RSpec cops
+require: rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  Include:
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+  Exclude:
+    - 'Gemfile.lock'
+    - '**/*.md'
+    - 'bin/**/*'
+    - 'config/**/*.yml'
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+
+# Turn on Rails cops
+Rails:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+# --- Layout ---
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false # we don't need to care/æ
+
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+
+Layout/SpaceInsideBrackets:
+  Exclude:
+    - 'config/environments/production.rb' # that's how Rails generates it
+
+# --- Metrics ---
+
+# because this isn't 1994
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'app/views/checksum_records/_checksum_record.json.jbuilder'
+
+Metrics/MethodLength:
+  Max: 15
+
+# --- Naming ---
+
+Naming/FileName:
+  Exclude:
+    - 'Capfile'
+    - 'Gemfile'
+
+# --- Rails ---
+
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb' # that's how Rails generates it
+
+# --- RSpec ---
+
+# --- Style ---
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb' # that's how rspec-rails generates it
+
+Style/Documentation:
+  Exclude:
+    - 'app/models/application_record.rb' # that's how Rails generates it
+    - 'config/application.rb' # that's how Rails generates it
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/spring.rb' # that's how Rails generates it
+
+# because ' vs " isn't a big deal for readability or maintainability or execution time
 Style/StringLiterals:
   Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
