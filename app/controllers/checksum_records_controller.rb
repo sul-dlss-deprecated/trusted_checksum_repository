@@ -1,21 +1,7 @@
 # API endpoint to create and read checksum data
 class ChecksumRecordsController < ApplicationController
-  before_action :set_checksum_record, only: [:show, :update, :destroy]
+  before_action :set_checksum_record, only: [:show]
 
-  # GET /checksum_records
-  # GET /checksum_records.json
-  def index
-    @checksum_records = ChecksumRecord.all
-  end
-
-  # GET /checksum_records/1
-  # GET /checksum_records/1.json
-  def show
-    # TODO: implement show method
-  end
-
-  # POST /checksum_records
-  # POST /checksum_records.json
   def create
     @checksum_record = ChecksumRecord.new(checksum_record_params)
 
@@ -26,21 +12,7 @@ class ChecksumRecordsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /checksum_records/1
-  # PATCH/PUT /checksum_records/1.json
-  def update
-    if @checksum_record.update(checksum_record_params)
-      render :show, status: :ok, location: @checksum_record
-    else
-      render json: @checksum_record.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /checksum_records/1
-  # DELETE /checksum_records/1.json
-  def destroy
-    @checksum_record.destroy
-  end
+  def show; end
 
   private
 
