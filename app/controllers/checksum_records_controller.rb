@@ -33,6 +33,7 @@ class ChecksumRecordsController < ApplicationController
         :archive_sha1,
         :archive_sha256
       ]
-      params.require(:checksum_record).permit(permitted_params)
+      # params.require(:checksum_record).permit(permitted_params)
+      params.permit(permitted_params).to_unsafe_h
     end
 end
