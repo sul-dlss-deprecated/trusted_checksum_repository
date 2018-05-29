@@ -2,4 +2,4 @@ server 'checksum-repository-prod.stanford.edu', user: 'tcr', roles: %w[app db we
 
 Capistrano::OneTimeKey.generate_one_time_key!
 set :rails_env, 'production'
-set :bundle_without, 'deploy test'
+set :bundle_without, 'deploy development test'

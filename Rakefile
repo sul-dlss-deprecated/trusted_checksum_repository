@@ -5,11 +5,18 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-require 'rubocop/rake_task'
-RuboCop::RakeTask.new
+begin
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new
+rescue LoadError
+  desc 'Run rubocop'
+  task :rubocop do
+    abort 'Please install the rubocop gem to run rubocop.'
+  end
+end
 
 task default: [:spec, :rubocop]
 
 task :travis_setup_postgres do
-  sh("psql -U postgres -f db/scripts/db_setup.sql")
+  sh("psql -U postgres -f db/scripts/tcr_test_setup.sql")
 end
